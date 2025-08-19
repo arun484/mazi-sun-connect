@@ -14,7 +14,126 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      financial_data: {
+        Row: {
+          created_at: string
+          expenses: number | null
+          id: string
+          month: string
+          net_profit: number | null
+          revenue: number | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          expenses?: number | null
+          id?: string
+          month: string
+          net_profit?: number | null
+          revenue?: number | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          expenses?: number | null
+          id?: string
+          month?: string
+          net_profit?: number | null
+          revenue?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      news: {
+        Row: {
+          author_id: string
+          content: string
+          created_at: string
+          id: string
+          published: boolean | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id: string
+          content: string
+          created_at?: string
+          id?: string
+          published?: boolean | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string
+          content?: string
+          created_at?: string
+          id?: string
+          published?: boolean | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      plant_performance: {
+        Row: {
+          created_at: string
+          date: string
+          efficiency_percentage: number | null
+          energy_generated_kwh: number
+          id: string
+          maintenance_status: string | null
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          efficiency_percentage?: number | null
+          energy_generated_kwh: number
+          id?: string
+          maintenance_status?: string | null
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          efficiency_percentage?: number | null
+          energy_generated_kwh?: number
+          id?: string
+          maintenance_status?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string | null
+          first_name: string | null
+          id: string
+          last_name: string | null
+          role: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          role?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          role?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
