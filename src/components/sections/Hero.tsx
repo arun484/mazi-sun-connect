@@ -31,7 +31,7 @@ export function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-slate-900">
+            <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-foreground">
               <Link to="/contact">Connect with Us</Link>
             </Button>
           </div>
