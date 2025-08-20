@@ -42,6 +42,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signIn = async (email: string, password: string) => {
+    // Check if email is in allowed users list
+    const { data: allowedUser } = await supabase
+      .from('allowed_users')
+      .select('email')
+      .eq('email', email)
+      .single();
+
+    if (!allowedUser) {
+      const error = { message: 'Email not authorized. Please contact admin for access.' };
+      toast({
+        title: "Login Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+      return { error };
+    }
+
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -59,6 +76,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signUp = async (email: string, password: string) => {
+    // Check if email is in allowed users list
+    const { data: allowedUser } = await supabase
+      .from('allowed_users')
+      .select('email')
+      .eq('email', email)
+      .single();
+
+    if (!allowedUser) {
+      const error = { message: 'Email not authorized. Please contact admin for access.' };
+      toast({
+        title: "Registration Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+      return { error };
+    }
+
     const redirectUrl = `${window.location.origin}/`;
     
     const { error } = await supabase.auth.signUp({
@@ -95,7 +129,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const resetPassword = async (email: string) => {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`,
+      redirectTo: `${window.location.origin}/auth`,
     });
     
     if (error) {

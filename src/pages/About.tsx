@@ -12,7 +12,7 @@ const About = () => {
           <div className="container mx-auto px-4 lg:px-6">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                About Mazi Solar Energy
+                About Mazi Green Energy
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-muted-foreground">
                 Leading India's renewable energy revolution with innovative solar solutions

@@ -20,7 +20,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Sun className="h-8 w-8 text-primary" />
-            <span className="font-bold text-xl text-primary">Mazi Solar Energy</span>
+            <span className="font-bold text-xl text-primary">Mazi Green Energy</span>
           </Link>
 
           {/* Desktop Navigation */}

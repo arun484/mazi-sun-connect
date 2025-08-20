@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      allowed_users: {
+        Row: {
+          added_by: string | null
+          created_at: string
+          email: string
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          added_by?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          updated_at?: string
+        }
+        Update: {
+          added_by?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       financial_data: {
         Row: {
           created_at: string

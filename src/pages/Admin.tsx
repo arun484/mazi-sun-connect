@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useAuth } from '@/hooks/useAuth';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
@@ -101,11 +102,12 @@ const Admin = () => {
           </div>
 
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-5">
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="financial">Financial</TabsTrigger>
               <TabsTrigger value="performance">Performance</TabsTrigger>
               <TabsTrigger value="monitoring">Monitoring</TabsTrigger>
+              <TabsTrigger value="management">Management</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="mt-8">
@@ -465,6 +467,107 @@ const Admin = () => {
                   </div>
                 </CardContent>
               </Card>
+            </TabsContent>
+
+            <TabsContent value="management" className="mt-8">
+              <div className="grid lg:grid-cols-2 gap-8">
+                {/* News Management */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Latest News Management</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <Button className="w-full">Add New Article</Button>
+                      <div className="space-y-3">
+                        <div className="border rounded-lg p-4">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-semibold">New Solar Panel Installation Complete</h4>
+                            <Badge variant="secondary">Published</Badge>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-3">
+                            Our latest 500kW solar panel installation has been completed successfully...
+                          </p>
+                          <div className="flex gap-2">
+                            <Button size="sm" variant="outline">Edit</Button>
+                            <Button size="sm" variant="outline">Delete</Button>
+                          </div>
+                        </div>
+                        
+                        <div className="border rounded-lg p-4">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-semibold">Monthly Performance Record Achieved</h4>
+                            <Badge variant="secondary">Published</Badge>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-3">
+                            This month we achieved our highest energy generation record...
+                          </p>
+                          <div className="flex gap-2">
+                            <Button size="sm" variant="outline">Edit</Button>
+                            <Button size="sm" variant="outline">Delete</Button>
+                          </div>
+                        </div>
+                        
+                        <div className="border rounded-lg p-4">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-semibold">Community Outreach Program Launch</h4>
+                            <Badge variant="outline">Draft</Badge>
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-3">
+                            Announcing our new community education program on renewable energy...
+                          </p>
+                          <div className="flex gap-2">
+                            <Button size="sm" variant="outline">Edit</Button>
+                            <Button size="sm" variant="outline">Publish</Button>
+                            <Button size="sm" variant="outline">Delete</Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* User Access Management */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Authorized Users Management</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="flex gap-2">
+                        <Input placeholder="Enter email address" />
+                        <Button>Add User</Button>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <h4 className="font-semibold text-sm">Authorized Email Addresses:</h4>
+                        <div className="space-y-2 max-h-64 overflow-y-auto">
+                          <div className="flex justify-between items-center p-2 bg-muted rounded">
+                            <span className="text-sm">arun484@gmail.com</span>
+                            <Button size="sm" variant="outline">Remove</Button>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-muted rounded">
+                            <span className="text-sm">admin@mazigreenergy.com</span>
+                            <Button size="sm" variant="outline">Remove</Button>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-muted rounded">
+                            <span className="text-sm">manager@mazigreenergy.com</span>
+                            <Button size="sm" variant="outline">Remove</Button>
+                          </div>
+                          <div className="flex justify-between items-center p-2 bg-muted rounded">
+                            <span className="text-sm">tech@mazigreenergy.com</span>
+                            <Button size="sm" variant="outline">Remove</Button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="text-sm text-muted-foreground">
+                        Only users with email addresses in this list can sign up and access the system.
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </TabsContent>
           </Tabs>
         </div>

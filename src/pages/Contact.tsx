@@ -82,7 +82,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-bold mb-2">Head Office</h3>
                         <p className="text-muted-foreground">
-                          Mazi Solar Energy Pvt. Ltd.<br />
+                          Mazi Green Energy Pvt. Ltd.<br />
                           Solar Technology Park<br />
                           Sector 15, Gurugram, Haryana 122001<br />
                           India
@@ -167,7 +167,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-4">Plant Address</h3>
                     <p className="text-muted-foreground mb-6">
-                      Mazi Solar Plant<br />
+                      Mazi Green Plant<br />
                       Village Dhankot, Rewari District<br />
                       Haryana 123401, India
                     </p>
