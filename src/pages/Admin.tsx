@@ -4,7 +4,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useAuth } from '@/hooks/useAuth';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { 
@@ -23,7 +22,6 @@ import {
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
 const Admin = () => {
-  const { user } = useAuth();
   const [financialData, setFinancialData] = useState([]);
   const [plantPerformance, setPlantPerformance] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -79,14 +77,6 @@ const Admin = () => {
   const displayFinancialData = financialData.length > 0 ? financialData : sampleFinancialData;
   const displayPerformanceData = plantPerformance.length > 0 ? plantPerformance : samplePerformanceData;
 
-  if (!user) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-xl text-muted-foreground">Please log in to access the admin dashboard.</p>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -97,7 +87,7 @@ const Admin = () => {
               Admin Dashboard
             </h1>
             <p className="text-muted-foreground">
-              Welcome back, {user.email}. Here's your solar plant overview.
+              Here's your solar plant overview.
             </p>
           </div>
 
@@ -444,7 +434,9 @@ const Admin = () => {
                       <div>
                         <p className="font-medium text-yellow-800">Scheduled Maintenance Due</p>
                         <p className="text-sm text-yellow-700">Panel cleaning scheduled for next week</p>
-                        <Button size="sm" variant="outline" className="mt-2">Schedule Now</Button>
+                        <div className="flex justify-center mt-2">
+                          <Button size="sm" variant="outline">Schedule Now</Button>
+                        </div>
                       </div>
                     </div>
 
@@ -453,7 +445,9 @@ const Admin = () => {
                       <div>
                         <p className="font-medium text-blue-800">System Update Available</p>
                         <p className="text-sm text-blue-700">New monitoring software version available</p>
-                        <Button size="sm" variant="outline" className="mt-2">Update System</Button>
+                        <div className="flex justify-center mt-2">
+                          <Button size="sm" variant="outline">Update System</Button>
+                        </div>
                       </div>
                     </div>
 
@@ -488,7 +482,7 @@ const Admin = () => {
                           <p className="text-sm text-muted-foreground mb-3">
                             Our latest 500kW solar panel installation has been completed successfully...
                           </p>
-                          <div className="flex gap-2">
+                          <div className="flex justify-center gap-2">
                             <Button size="sm" variant="outline">Edit</Button>
                             <Button size="sm" variant="outline">Delete</Button>
                           </div>
@@ -502,7 +496,7 @@ const Admin = () => {
                           <p className="text-sm text-muted-foreground mb-3">
                             This month we achieved our highest energy generation record...
                           </p>
-                          <div className="flex gap-2">
+                          <div className="flex justify-center gap-2">
                             <Button size="sm" variant="outline">Edit</Button>
                             <Button size="sm" variant="outline">Delete</Button>
                           </div>
@@ -516,7 +510,7 @@ const Admin = () => {
                           <p className="text-sm text-muted-foreground mb-3">
                             Announcing our new community education program on renewable energy...
                           </p>
-                          <div className="flex gap-2">
+                          <div className="flex justify-center gap-2">
                             <Button size="sm" variant="outline">Edit</Button>
                             <Button size="sm" variant="outline">Publish</Button>
                             <Button size="sm" variant="outline">Delete</Button>
@@ -534,7 +528,7 @@ const Admin = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <div className="flex gap-2">
+                      <div className="flex justify-center gap-2">
                         <Input placeholder="Enter email address" />
                         <Button>Add User</Button>
                       </div>
@@ -542,21 +536,29 @@ const Admin = () => {
                       <div className="space-y-2">
                         <h4 className="font-semibold text-sm">Authorized Email Addresses:</h4>
                         <div className="space-y-2 max-h-64 overflow-y-auto">
-                          <div className="flex justify-between items-center p-2 bg-muted rounded">
-                            <span className="text-sm">arun484@gmail.com</span>
-                            <Button size="sm" variant="outline">Remove</Button>
+                          <div className="grid grid-cols-3 items-center p-2 bg-muted rounded">
+                            <span className="text-sm col-span-2">arun484@gmail.com</span>
+                            <div className="flex justify-center">
+                              <Button size="sm" variant="outline">Remove</Button>
+                            </div>
                           </div>
-                          <div className="flex justify-between items-center p-2 bg-muted rounded">
-                            <span className="text-sm">admin@mazigreenergy.com</span>
-                            <Button size="sm" variant="outline">Remove</Button>
+                          <div className="grid grid-cols-3 items-center p-2 bg-muted rounded">
+                            <span className="text-sm col-span-2">admin@mazigreenergy.com</span>
+                            <div className="flex justify-center">
+                              <Button size="sm" variant="outline">Remove</Button>
+                            </div>
                           </div>
-                          <div className="flex justify-between items-center p-2 bg-muted rounded">
-                            <span className="text-sm">manager@mazigreenergy.com</span>
-                            <Button size="sm" variant="outline">Remove</Button>
+                          <div className="grid grid-cols-3 items-center p-2 bg-muted rounded">
+                            <span className="text-sm col-span-2">manager@mazigreenergy.com</span>
+                            <div className="flex justify-center">
+                              <Button size="sm" variant="outline">Remove</Button>
+                            </div>
                           </div>
-                          <div className="flex justify-between items-center p-2 bg-muted rounded">
-                            <span className="text-sm">tech@mazigreenergy.com</span>
-                            <Button size="sm" variant="outline">Remove</Button>
+                          <div className="grid grid-cols-3 items-center p-2 bg-muted rounded">
+                            <span className="text-sm col-span-2">tech@mazigreenergy.com</span>
+                            <div className="flex justify-center">
+                              <Button size="sm" variant="outline">Remove</Button>
+                            </div>
                           </div>
                         </div>
                       </div>

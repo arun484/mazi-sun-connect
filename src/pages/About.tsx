@@ -126,7 +126,7 @@ const About = () => {
               <Card>
                 <CardContent className="p-8 text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full mx-auto mb-6"></div>
-                  <h3 className="text-xl font-bold mb-2">Rajesh Kumar</h3>
+                  <h3 className="text-xl font-bold mb-2">Sai Shankar</h3>
                   <p className="text-primary mb-4">Chief Executive Officer</p>
                   <p className="text-muted-foreground">
                     20+ years in renewable energy sector with expertise in large-scale solar projects
@@ -137,7 +137,7 @@ const About = () => {
               <Card>
                 <CardContent className="p-8 text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-full mx-auto mb-6"></div>
-                  <h3 className="text-xl font-bold mb-2">Priya Sharma</h3>
+                  <h3 className="text-xl font-bold mb-2">SPVS</h3>
                   <p className="text-primary mb-4">Chief Technology Officer</p>
                   <p className="text-muted-foreground">
                     Expert in solar technology innovation with multiple patents in photovoltaic systems
@@ -148,7 +148,7 @@ const About = () => {
               <Card>
                 <CardContent className="p-8 text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full mx-auto mb-6"></div>
-                  <h3 className="text-xl font-bold mb-2">Arun Patel</h3>
+                  <h3 className="text-xl font-bold mb-2">Kumar V</h3>
                   <p className="text-primary mb-4">Chief Operations Officer</p>
                   <p className="text-muted-foreground">
                     Specialized in project management and operational excellence for renewable energy
